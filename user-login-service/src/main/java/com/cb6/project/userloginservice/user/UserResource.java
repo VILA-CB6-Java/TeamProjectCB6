@@ -15,7 +15,7 @@ public class UserResource {
 	
 	//POST /users
 	//Get user back if success or "Error" if username or password wrong.
-	@PostMapping("/users")
+	@PostMapping("/users/login")
 	public Users retrieveUser(@Valid @RequestBody Users user) {
 		Users user1 = service.findByUsername(user.getUsername());
 		if(user1==null) {
