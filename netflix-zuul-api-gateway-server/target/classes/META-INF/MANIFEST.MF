@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Implementation-Title: netflix-zuul-api-gateway-server
 Implementation-Version: 0.0.1-SNAPSHOT
-Built-By: baham
+Built-By: bill_
 Implementation-Vendor-Id: com.cb6.project
-Build-Jdk: 1.8.0_191
+Build-Jdk: 1.8.0_181
 Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
  ot-starter-parent/netflix-zuul-api-gateway-server
 Created-By: Maven Integration for Eclipse
