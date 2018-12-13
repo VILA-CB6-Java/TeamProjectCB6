@@ -1,7 +1,7 @@
-package com.cb6.project.userregisterservice.exception;
+package com.cb6.project.useractionsservice.exception;
 
 public class ExceptionResponse {
-
+	
 	//message
 	private String message;
 	

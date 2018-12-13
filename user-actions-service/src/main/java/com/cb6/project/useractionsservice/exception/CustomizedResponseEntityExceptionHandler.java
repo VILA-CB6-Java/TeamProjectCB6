@@ -1,4 +1,4 @@
-package com.cb6.project.userregisterservice.exception;
+package com.cb6.project.useractionsservice.exception;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import com.cb6.project.userregisterservice.user.UserAlreadyExistsException;
+import com.cb6.project.useractionsservice.user.UserNotFoundException;
 
 @ControllerAdvice
 @RestController
@@ -23,12 +23,12 @@ public class CustomizedResponseEntityExceptionHandler extends ResponseEntityExce
 		return new ResponseEntity(exceptionResponse, HttpStatus.INTERNAL_SERVER_ERROR);		
 	}
 	
-	@ExceptionHandler(UserAlreadyExistsException.class)
-	public final ResponseEntity<Object> handleUserNotFoundException(UserAlreadyExistsException ex, WebRequest request){
+	@ExceptionHandler(UserNotFoundException.class)
+	public final ResponseEntity<Object> handleUserNotFoundException(UserNotFoundException ex, WebRequest request){
 		
 		ExceptionResponse exceptionResponse = new ExceptionResponse(ex.getMessage());
 		
-		return new ResponseEntity(exceptionResponse, HttpStatus.BAD_REQUEST);		
+		return new ResponseEntity(exceptionResponse, HttpStatus.NOT_FOUND);		
 	}
 	
 

@@ -1,13 +1,11 @@
-package com.cb6.project.userregisterservice.exception;
+package com.cb6.project.useractionsservice;
 
-public class ExceptionResponse {
-
-	//message
+public class Message {
 	private String message;
 	
-	public ExceptionResponse() {}
+	public Message() {}
 	
-	public ExceptionResponse(String message) {
+	public Message(String message) {
 		this.message=message;
 	}
 
@@ -18,5 +16,6 @@ public class ExceptionResponse {
 	public void setMessage(String message) {
 		this.message = message;
 	}
-
+	
+	
 }

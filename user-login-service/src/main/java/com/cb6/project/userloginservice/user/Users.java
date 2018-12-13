@@ -9,8 +9,6 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
-
-
 @Entity
 @Table(name="users")
 public class Users {

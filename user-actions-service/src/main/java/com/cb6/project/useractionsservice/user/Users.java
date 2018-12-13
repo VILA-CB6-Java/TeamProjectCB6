@@ -1,4 +1,4 @@
-package com.cb6.project.userregisterservice.user;
+package com.cb6.project.useractionsservice.user;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
