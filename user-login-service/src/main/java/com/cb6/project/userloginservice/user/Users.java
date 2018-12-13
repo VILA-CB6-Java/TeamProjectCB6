@@ -16,7 +16,7 @@ import com.fasterxml.jackson.annotation.JsonProperty.Access;
 public class Users {
 	
 	@Id
-	@Column(name="user_id")
+	@Column(name="id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer userId;
 	
