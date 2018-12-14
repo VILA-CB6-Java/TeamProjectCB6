@@ -11,8 +11,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
 @Entity
-@Table(name="announcements")
-public class AdminAnnouncements {
+@Table(name="messages")
+public class AdminMessages {
 	
 	@Id
 	@JsonProperty(access = Access.WRITE_ONLY)
@@ -21,23 +21,23 @@ public class AdminAnnouncements {
 	private int id;
 	
 	@Column
-	private String title;
-	
-	@Column
 	private String body;
+	
+	@Column(name="username")
+	private String username;
 	
 	@Column
 	private  String dtime;
 	
-	public AdminAnnouncements() {
+	public AdminMessages() {
 		
 	}
 
-	public AdminAnnouncements(int id, String title, String body, String dtime) {
+	public AdminMessages(int id, String body, String username, String dtime) {
 		super();
 		this.id = id;
-		this.title = title;
 		this.body = body;
+		this.username = username;
 		this.dtime = dtime;
 	}
 
@@ -49,20 +49,20 @@ public class AdminAnnouncements {
 		this.id = id;
 	}
 
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
 	public String getBody() {
 		return body;
 	}
 
 	public void setBody(String body) {
 		this.body = body;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public String getDtime() {
