@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cb6.project.adminannouncementsservice.repository.AdminAnnouncementsRepository;
+import com.cb6.project.adminannouncementsservice.repository.AdminMessagesRepository;
 
 @RestController
 @CrossOrigin
@@ -25,6 +26,9 @@ public class AdminAnnouncementsController {
 	
 	@Autowired
 	AdminAnnouncementsRepository repository;
+	
+	@Autowired
+	AdminMessagesRepository repository2;
 	
 	
 	@GetMapping("/announcements")
@@ -44,6 +48,7 @@ public class AdminAnnouncementsController {
 		
 		Page<AdminAnnouncements> page = repository.findRandom(PageRequest.of(0, 5));
         List<AdminAnnouncements> list = page.getContent();
+        logger.info("{}", list);
 		return list;
 		
 	}
@@ -56,6 +61,23 @@ public class AdminAnnouncementsController {
 		AdminAnnouncements newPost = repository.save(adminAnnouncement);
 		return newPost;
 		
+	}
+	
+	@GetMapping("/messages")
+	public List<AdminMessages> retrieveMessages() {
+		List<AdminMessages> list = repository2.findAll();
+		return list;
+		
+	}
+	
+	@PostMapping("/messages/post")
+	public AdminMessages postMessage(@RequestBody AdminMessages adminMessage) {
+		Date dt = new Date();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		adminMessage.setDtime(sdf.format(dt));
+		
+		AdminMessages newMessage = repository2.save(adminMessage);
+		return newMessage;
 	}
 	
 	
