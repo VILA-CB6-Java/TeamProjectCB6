@@ -5,7 +5,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.ForeignKey;
+
 
 @Entity
 @Table(name="exams")
@@ -16,16 +21,23 @@ public class Exams {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	
-	@Column(name="userId")
-	private Integer userId;
-	
 	@Column(name="dtime")
 	private String dtime;
 	
 	@Column(name="grade")
 	private Integer grade;
 	
+	
+	@Column(name="user_id")
+	private Integer userId;
+	
 	public Exams() {}
+	
+	public Exams(String dtime, Integer grade, Integer user_id) {
+		this.dtime=dtime;
+		this.grade=grade;
+		this.userId=user_id;
+	}
 
 	public Integer getId() {
 		return id;
@@ -39,8 +51,8 @@ public class Exams {
 		return userId;
 	}
 
-	public void setUsername(Integer userId) {
-		this.userId = userId;
+	public void setUserId(Integer user_id) {
+		this.userId = user_id;
 	}
 
 	public String getDtime() {
