@@ -47,7 +47,6 @@ public class UserResource {
 		Users user1= service.findByUsername(user.getUsername());
 		if (user1==null)
 			throw new UserNotFoundException("User "+user.getUsername()+" not found.");
-		service.delete(user1);
 		return user1;
 	}
 }
