@@ -76,7 +76,7 @@ public class ExamsController {
 		return list;
 	}
 	
-	//update or add question.
+	//update or add a question.
 	@CrossOrigin
 	@PostMapping("/questions/update")
 	public Message updateQuestion (@Valid @RequestBody Questions question) {
@@ -89,4 +89,15 @@ public class ExamsController {
 		service2.save(question);
 		return m;
 	}
+	
+	//delete a question
+	@CrossOrigin
+	@PostMapping("/questions/delete")
+	public Message deleteQuestion (@Valid @RequestBody Questions question) {
+		service2.delete(question);
+		return new Message("Question deleted successfully! ");
+	}
+	
+	
+	
 }
