@@ -76,6 +76,14 @@ public class ExamsController {
 		return list;
 	}
 	
+	@CrossOrigin
+	@GetMapping("/questions")
+	public List<Questions> retrieveAllQuestions() {
+		List<Questions> list= new ArrayList<>();
+		list= service2.findAll();
+		return list;
+	}
+	
 	//update or add a question.
 	@CrossOrigin
 	@PostMapping("/questions/update")
