@@ -30,6 +30,14 @@ public class AdminAnnouncementsController {
 	@Autowired
 	AdminMessagesRepository repository2;
 	
+	class Message {
+		String body;
+		
+		public Message(String body) {
+			this.body=body;
+		}
+		}
+	
 	
 	@GetMapping("/announcements")
 	public List<AdminAnnouncements> retrieveAnnouncement() {
@@ -78,6 +86,13 @@ public class AdminAnnouncementsController {
 		
 		AdminMessages newMessage = repository2.save(adminMessage);
 		return newMessage;
+	}
+	
+	@PostMapping("/messages/delete")
+	public Message deleteMessage(@RequestBody AdminMessages adminMessage) {
+		repository2.delete(adminMessage);
+	return new Message("Message deleted!");
+		
 	}
 	
 	
