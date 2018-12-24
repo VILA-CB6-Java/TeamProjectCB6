@@ -30,6 +30,8 @@ public class AdminAnnouncementsController {
 	@Autowired
 	AdminMessagesRepository repository2;
 	
+
+	
 	
 	@GetMapping("/announcements")
 	public List<AdminAnnouncements> retrieveAnnouncement() {
@@ -65,7 +67,7 @@ public class AdminAnnouncementsController {
 	
 	@GetMapping("/messages")
 	public List<AdminMessages> retrieveMessages() {
-		List<AdminMessages> list = repository2.findAll();
+		List<AdminMessages> list = repository2.findAllByOrderByDtimeDesc();		
 		return list;
 		
 	}
@@ -78,6 +80,13 @@ public class AdminAnnouncementsController {
 		
 		AdminMessages newMessage = repository2.save(adminMessage);
 		return newMessage;
+	}
+	
+	@PostMapping("/messages/delete")
+	public Message deleteMessage(@RequestBody AdminMessages adminMessage) {
+		repository2.delete(adminMessage);
+	return new Message("Message deleted!");
+		
 	}
 	
 	
